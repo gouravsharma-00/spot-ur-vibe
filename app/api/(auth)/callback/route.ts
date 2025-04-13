@@ -1,3 +1,4 @@
+import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request : NextRequest) {
@@ -25,7 +26,14 @@ export async function GET(request : NextRequest) {
         })
         const { access_token, refresh_token } = await body.json()
 
-        return NextResponse.redirect(`http://localhost:3000/dashboard?access_token=${access_token}`);
+        const response =  NextResponse.redirect(`https://spot-ur-vibe.vercel.app/client`);
+        response.cookies.set('spotify_token', access_token, {
+            httpOnly: true,
+            secure: true,
+            path: '/'
+        })
+
+        return response;
 
     }catch(err) {
         return new NextResponse('Auth failed', {status: 401});

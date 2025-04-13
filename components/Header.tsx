@@ -8,6 +8,7 @@ export default function Header() {
                 <ul>
                     <li>Home</li>
                     <li><Link href='/api/login'>Spotify</Link></li>
+                    <li><Link href='/api/logout'>logout</Link></li>
                 </ul>
             </nav>
         </header>
