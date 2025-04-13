@@ -1,5 +1,4 @@
 import React from 'react'
-import Link from 'next/link'
 
 export default function Header() {
     return (
@@ -7,8 +6,8 @@ export default function Header() {
             <nav role='navigation'>
                 <ul>
                     <li>Home</li>
-                    <li><Link href='/api/login'>Spotify</Link></li>
-                    <li><Link href='/api/logout'>logout</Link></li>
+                    <li><a href='/api/login'>Spotify</a></li>
+                    <li><a href='/api/logout'>logout</a></li>
                 </ul>
             </nav>
         </header>

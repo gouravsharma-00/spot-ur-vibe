@@ -7,8 +7,8 @@ type spotifyUser = {
 }
 
 export default async function Page() {
-    const cookie = cookies();
-    const token = (await cookie).get('spotify_token')?.value
+    const cookiestore = cookies();
+    const token = (await cookiestore).get('spotify_token')?.value
 
     if(!token) return <h1>Please Login using your spotify account</h1>
 
