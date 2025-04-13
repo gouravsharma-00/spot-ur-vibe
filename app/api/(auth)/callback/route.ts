@@ -2,14 +2,14 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request : NextRequest) {
     const code = new URL(request.url).searchParams.get('code');
-    const URL = 'https://accounts.spotify.com/api/token'
+    const token_URL = 'https://accounts.spotify.com/api/token'
     
     if (!code) {
         return new NextResponse('No code provided', { status: 400 });
     }
 
     try {
-        const body = await fetch(URL, {
+        const body = await fetch(token_URL, {
             method: 'POST',
             headers: {
                 'Content-Type' : "application/x-www-form-urlencoded",
